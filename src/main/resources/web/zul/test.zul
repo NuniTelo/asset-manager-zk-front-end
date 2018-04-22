@@ -1,0 +1,47 @@
+<zk>
+    <window apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('zk.springboot.TestVIewModel')">
+        <label value="@bind(vm.emri)"/>
+        <label value="@bind(vm.mbiemri)"/>
+        <button onClick="@command('show')">Test</button>
+        <listbox model="@load(vm.lista)" onClick="@command('clicked')"  selectedItem="@bind(vm.curSelectedPerson)">
+        <template name="listmodel" var="items">
+            <listitem  label="@load(items)" />
+        </template>
+        </listbox>
+        <textbox value="@bind(vm.text)"/>
+
+        <listbox model="@load(vm.map)">
+            <template name="mapmodel" var="mapitems">
+                <listitem label="@load(mapitems)" />
+            </template>
+        </listbox>
+
+        <!--<listbox model="@load(vm.users)">-->
+            <!--<template name="usermodel" var="userEach">-->
+                <!--<listitem label="@load(userEach.tags)" />-->
+            <!--</template>-->
+        <!--</listbox>-->
+
+        <listbox children="@load(vm.users)">
+            <template name="children">
+                <listitem label="@load(each.tags)" />
+                <listitem label="@load(each.t2)"/>
+            </template>
+        </listbox>
+
+        <!--<listbox model="@load(vm.users)">-->
+            <!--<template name="children">-->
+                <!--<listcell label="@load()"/>-->
+            <!--</template>-->
+        <!--</listbox>-->
+
+
+        <!--<radiogroup>-->
+            <!--<vlayout children="@bind(vm.users)">-->
+                <!--<template name="children">-->
+                    <!--<radio label="@load(each.tags)" value="@load(each.tags)"></radio>-->
+                <!--</template>-->
+            <!--</vlayout>-->
+        <!--</radiogroup>-->
+    </window>
+</zk>

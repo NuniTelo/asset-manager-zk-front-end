@@ -1,0 +1,15 @@
+<div apply="org.zkoss.bind.BindComposer"
+     viewModel="@id('vm') @init('zk.springboot.LoadOnDemandViewModel')">
+
+    <listbox id="list" model="@bind(vm.hugeList)" width="200px" height="540px">
+        <listhead>
+            <listheader label="Load On Demand" sort="auto" />
+        </listhead>
+    </listbox>
+
+    <style>
+        div.z-listbox-body .z-listcell {
+        padding: 2px 5px;
+        }
+    </style>
+</div>

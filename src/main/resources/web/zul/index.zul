@@ -1,0 +1,132 @@
+<zk>
+	<style>
+		<!--HEAD-TOOLBAR-->
+		.headToolbar {
+		background-color: #F6B106;
+		}
+
+		<!--HEAD-LOGO-->
+		.logoHead {
+		height:65px;
+		}
+
+		<!--HEAD-TEXT-->
+		.headText {
+		color:white;
+		font-size: 20px;
+		}
+
+		<!--SEARCH-BUTTON-->
+		.searchButton {
+				width:32px;
+				height:30px;
+		}
+
+		<style>
+			div.z-listbox-body .z-listcell {
+			padding: 2px 5px;
+			}
+		</style>
+	</style>
+
+	<toolbar sclass="headToolbar">
+		<hbox>
+		<image sclass="logoHead" src="https://rayonit.com/wp-content/uploads/2018/04/rayonit_white.png" />
+		<space/>
+		<space/>
+		<label sclass= "headText" value="ASSET MANAGEMENT SYSTEM"  />
+		<space />
+		</hbox>
+	</toolbar>
+
+		<borderlayout>
+			<north title="North" size="15%" collapsible="true">
+				<hbox hflex="1">
+				<textbox hflex="1" />
+					<image sclass="searchButton" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-1/512/search-icon.png"  />
+
+				</hbox>
+			</north>
+			<!--collapsible="true" nqs duam qe te mbyllet -->
+		<west title="West" size="20%" flex="true" >
+			<div style="background:#B8D335">
+				<label value="25%"
+					   style="color:white;font-size:50px" />
+			</div>
+		</west>
+
+			<!--border="none" nqs duam qe te bejme none-border-->
+			<east autoscroll="true" title = "East" size="80%" >
+				<window viewModel="@id('vm') @init('zk.springboot.ViewModels.ListViewModel')">
+					<listbox id="list" model = "@load(vm.assetList)">
+						<listhead>
+							<listheader label="Brand" sort="auto" />
+							<listheader label="Model"/>
+							<listheader label="Name"/>
+							<listheader label="Category"/>
+							<listheader label="Subcategory"/>
+							<listheader label="Serial No."/>
+							<listheader label="Asset Status"/>
+							<listheader label="Asset Condition"/>
+						</listhead>
+						<template name="model" var = "items" >
+						<listitem>
+							<listcell label="@load(items.brand)"/>
+							<listcell label="@load(items.model)"/>
+							<listcell label="@load(items.name)"/>
+							<listcell label="@load(items.category)"/>
+							<listcell label="@load(items.subcategory)"/>
+							<listcell label="@load(items.serial_no)"/>
+							<listcell label="@load(items.assetStatus)"/>
+							<listcell label="@load(items.assetCondition)"/>
+						</listitem>
+						</template>
+					</listbox>
+				</window>
+			</east>
+		</borderlayout>
+
+		<!--<hbox>-->
+		<!--<textbox hflex="1"/>-->
+		<!--<image sclass="searchButton" src="https://freeiconshop.com/wp-content/uploads/edd/search-flat.png" />-->
+		<!--</hbox>-->
+
+	<window  border="none" viewModel="@id('vm') @init('zk.springboot.ViewModels.ListViewModel')">
+		<listbox id="list" model = "@load(vm.assetList)">
+			<listhead>
+				<listheader label="Brand" sort="auto" />
+				<listheader label="Model"/>
+				<listheader label="Name"/>
+				<listheader label="Category"/>
+				<listheader label="Subcategory"/>
+				<listheader label="Serial No."/>
+				<listheader label="Asset Status"/>
+				<listheader label="Asset Condition"/>
+			</listhead>
+			<template name="model" var = "items" >
+				<listitem>
+					<listcell label="@load(items.brand)"/>
+					<listcell label="@load(items.model)"/>
+					<listcell label="@load(items.name)"/>
+					<listcell label="@load(items.category)"/>
+					<listcell label="@load(items.subcategory)"/>
+					<listcell label="@load(items.serial_no)"/>
+					<listcell label="@load(items.assetStatus)"/>
+					<listcell label="@load(items.assetCondition)"/>
+				</listitem>
+			</template>
+		</listbox>
+	</window>
+
+	<window title="Simple Title" sclass="center-bg-win"
+			border="normal" width="300px" height="300px">
+		<borderlayout>
+			<center autoscroll="true" title="Center">Center Content sadkjsahdlkjsalkdjsalkjdlksajdlksajdlkjsalkdjsaljdlsajdlsajdlsajdlkasjdlkjsaldkjaslkdjsaljdlsakjdlsajdlksajdlsajdlasjdlsakjdlsajdlsakjdlasjdlasj</center>
+			<north size="20%" title="North">North Content</north>
+			<south size="20%" title="South">South Content</south>
+			<east size="20%" title="East">East Content</east>
+			<west size="20%" title="West">West Content</west>
+		</borderlayout>
+	</window>
+
+</zk>
